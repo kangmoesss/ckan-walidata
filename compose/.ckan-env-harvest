@@ -12,7 +12,7 @@ CKAN_PORT=5000
 CKAN_MAX_UPLOAD_SIZE_MB=10
 SECRET_KEY=u6FFxT2zYk1LbLrk3aaCs6x5l3JMgsUUqm2r80W7tzI
 # CKAN Plugins
-CKAN__PLUGINS=envvars stats image_view text_view recline_view datarequests collaborator_orgs security scheming_dcat_datasets scheming_dcat_organizations scheming_dcat resourceauthorizer resource_proxy geo_view harvest ckan_harvester csw_harvester spatial_metadata spatial_query resourcedictionary datastore datapusher pages showcase pdf_view officedocs_view geojson_view shp_view wmts_view datatables_view dcat dcat_rdf_harvester dcat_json_harvester dcat_json_interface structured_data oaipmh_harvester
+CKAN__PLUGINS=envvars stats image_view text_view recline_view datarequests collaborator_orgs security resourceauthorizer resource_proxy geo_view harvest ckan_harvester csw_harvester spatial_metadata spatial_query resourcedictionary datastore datapusher pages showcase pdf_view officedocs_view geojson_view shp_view wmts_view datatables_view dcat dcat_rdf_harvester dcat_json_harvester dcat_json_interface structured_data oaipmh_harvester
 
 # CKAN requires storage path to be set in order for filestore to be enabled
 CKAN__STORAGE_PATH=/srv/app/data
@@ -56,10 +56,9 @@ CKANEXT__SPATIAL__COMMON_MAP__ATTRIBUTION=Map tiles by <a href="https://www.big.
 CKANEXT__GEOVIEW__OL_VIEWER__FORMATS=wms wfs geojson gml kml arcgis_rest gft
 
 # Scheming
-SCHEMING__DATASET_SCHEMAS=ckanext.scheming_dcat:/usr/local/lib/python3.8/dist-packages/ckanext/scheming_dcat/schemas/geodcatap/dcat.yaml
-SCHEMING__ORGANIZATIONS_SCHEMAS=ckanext.scheming_dcat:/usr/local/lib/python3.8/dist-packages/ckanext/scheming_dcat/schemas/geodcatap/geodcatap_org.json
+SCHEMING__DATASET_SCHEMAS=ckanext.scheming:/usr/local/lib/python3.8/dist-packages/ckanext/scheming_dcat/schemas/geodcatap/geodcatap_dataset.yaml
+SCHEMING__ORGANIZATIONS_SCHEMAS=ckanext.scheming:/usr/local/lib/python3.8/dist-packages/ckanext/scheming_dcat/schemas/geodcatap/geodcatap_org.json
 SCHEMING__PRESETS=ckanext.scheming_dcat:/usr/local/lib/python3.8/dist-packages/ckanext/scheming_dcat/schemas/geodcatap/geodcatap_presets.json
-SCHEMING__DCAT_FACET_LIST="theme dcat_type prioritas_tahun kategori_spbe"
 
 # Pages
 CKAN__PAGES__ALLOW_HTML=True
@@ -70,18 +69,3 @@ CKAN__SHOWCASE__EDITOR=ckeditor
 
 #Security
 CKANEXT__SECURITY__UPLOAD_BLACKLIST=['.html', '.js', '.sql', '.php', 'text/html', 'text/javascript', 'application/sql', 'application/x-sql']
-
-# pycsw
-PYCSW_PORT_HOST=8888
-PYCSW_PORT=8888
-PYCSW_URL=http://10.2.130.21:81/csw
-# SCHEMAS: ckan2pycsw/model/dataset.py - Dataset type
-PYCSW_CKAN_SCHEMA=iso19139_geodcatap
-PYCSW_OUPUT_SCHEMA=iso19139_inspire
-# ckan-pycsw schedule
-## ckan2pycsw days between each scheduler job
-PYCSW_CRON_DAYS_INTERVAL=2
-# ckan2pycsw hour of start of the scheduler job (0-23)
-PYCSW_CRON_HOUR_START=4
-## Timezone
-TZ=UTC

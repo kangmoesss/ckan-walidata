@@ -13,7 +13,7 @@ RUN mkdir -p /opt/solr/server/solr/$SOLR_CORE/data
 
 # Adding Files
 COPY ./solr/solrconfig-$CKAN_VERSION.xml /opt/solr/server/solr/$SOLR_CORE/conf/
-ADD https://raw.githubusercontent.com/apteksdi/ckan-walidata/master/compose/solr/schema.xml \
+ADD https://raw.githubusercontent.com/apteksdi/datajson-collection/master/schema.xml \
 https://raw.githubusercontent.com/apache/lucene-solr/releases/lucene-solr/$SOLR_VERSION/solr/server/solr/configsets/basic_configs/conf/currency.xml \
 https://raw.githubusercontent.com/apache/lucene-solr/releases/lucene-solr/$SOLR_VERSION/solr/server/solr/configsets/basic_configs/conf/synonyms.txt \
 https://raw.githubusercontent.com/apache/lucene-solr/releases/lucene-solr/$SOLR_VERSION/solr/server/solr/configsets/basic_configs/conf/stopwords.txt \
